@@ -26,6 +26,7 @@ AC_PROG_LIBTOOL
 
 
 AC_CONFIG_FILES([Makefile
+srcdir/info/Makefile
 ])
 
 AC_OUTPUT

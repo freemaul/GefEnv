@@ -1,2 +1,2 @@
 SUBDIRS=
-
+SUBDIRS+=srcdir/info
