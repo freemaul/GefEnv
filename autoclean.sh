@@ -4,6 +4,13 @@
 files_to_rm=
 dir_to_rm=
 
+if [ "$1" = "-v" ]
+then
+	display=1
+else
+	display=0
+	echo "autoclean.sh -v pour mode verbose"
+fi
 
 files_to_rm+="	aclocal.m4"
 dir_to_rm+="	autom4te.cache"
@@ -43,13 +50,19 @@ files_to_rm+="	srcdir/make-project/GEF-make-project"
 
 for f in $files_to_rm
 do
-	echo "rm -f $f"
+	if [ "$display" = 1 ]
+	then
+		echo "rm -f $f"
+	fi
 	rm -f "$f"
 done
 
 for d in $dir_to_rm
 do
-	echo "rm $d -dir -f"
+	if [ "$display" = 1 ]
+	then
+		echo "rm $d -dir -f"
+	fi
 	rm "$d" -dir -f
 done
 
