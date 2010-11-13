@@ -33,6 +33,12 @@ files_to_rm+="		srcdir/info/Makefile"
 files_to_rm+="		srcdir/info/Makefile.in"
 files_to_rm+="		srcdir/info/*.o"
 
+#make-project
+files_to_rm+="	srcdir/make-project/Makefile"
+files_to_rm+="	srcdir/make-project/Makefile.in"
+dir_to_rm+="	srcdir/make-project/.deps"
+files_to_rm+="	srcdir/make-project/*.o"
+files_to_rm+="	srcdir/make-project/make-project"
 
 for f in $files_to_rm
 do
