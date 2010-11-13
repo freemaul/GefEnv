@@ -26,6 +26,13 @@ files_to_rm+="	config.status"
 files_to_rm+="	libtool"
 files_to_rm+="	stamp-h1"
 
+#info
+dir_to_rm+="		srcdir/info/.deps/"
+files_to_rm+="		srcdir/info/GEF-info"
+files_to_rm+="		srcdir/info/Makefile"
+files_to_rm+="		srcdir/info/Makefile.in"
+files_to_rm+="		srcdir/info/*.o"
+
 
 for f in $files_to_rm
 do
