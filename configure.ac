@@ -25,10 +25,7 @@ AC_PROG_LIBTOOL
 
 
 
-files_to_conf="\
-Makefile
-"
-echo("patate")
-AC_CONFIG_FILES($files_to_conf)
+AC_CONFIG_FILES(Makefile\
+)
 
 AC_OUTPUT

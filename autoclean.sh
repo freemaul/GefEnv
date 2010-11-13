@@ -16,6 +16,15 @@ files_to_rm+="	install-sh"
 files_to_rm+="	ltmain.sh"
 dir_to_rm+="	m4"
 files_to_rm+="	missing"
+files_to_rm+="	COPYING"
+files_to_rm+="	INSTALL"
+files_to_rm+="	Makefile"
+files_to_rm+="	Makefile.in"
+files_to_rm+="	config.h"
+files_to_rm+="	config.log"
+files_to_rm+="	config.status"
+files_to_rm+="	libtool"
+files_to_rm+="	stamp-h1"
 
 
 for f in $files_to_rm
