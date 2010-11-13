@@ -25,6 +25,14 @@ files_to_rm+="	config.log"
 files_to_rm+="	config.status"
 files_to_rm+="	libtool"
 files_to_rm+="	stamp-h1"
+files_to_rm+="	depcomp"
+
+#info
+dir_to_rm+="		srcdir/info/.deps/"
+files_to_rm+="		srcdir/info/GEF-info"
+files_to_rm+="		srcdir/info/Makefile"
+files_to_rm+="		srcdir/info/Makefile.in"
+files_to_rm+="		srcdir/info/*.o"
 
 #make-project
 files_to_rm+="	srcdir/make-project/Makefile"
@@ -32,8 +40,6 @@ files_to_rm+="	srcdir/make-project/Makefile.in"
 dir_to_rm+="	srcdir/make-project/.deps"
 files_to_rm+="	srcdir/make-project/*.o"
 files_to_rm+="	srcdir/make-project/GEF-make-project"
-
-
 
 for f in $files_to_rm
 do

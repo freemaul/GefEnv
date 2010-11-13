@@ -26,6 +26,7 @@ AC_PROG_LIBTOOL
 
 
 AC_CONFIG_FILES([Makefile
+srcdir/info/Makefile
 srcdir/make-project/Makefile
 ])
 
