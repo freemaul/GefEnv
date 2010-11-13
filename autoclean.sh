@@ -29,6 +29,9 @@ files_to_rm+="	stamp-h1"
 #make-project
 files_to_rm+="	srcdir/make-project/Makefile"
 files_to_rm+="	srcdir/make-project/Makefile.in"
+dir_to_rm+="	srcdir/make-project/.deps"
+files_to_rm+="	srcdir/make-project/*.o"
+files_to_rm+="	srcdir/make-project/make-project"
 
 
 
