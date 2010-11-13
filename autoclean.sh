@@ -48,6 +48,9 @@ dir_to_rm+="	srcdir/make-project/.deps"
 files_to_rm+="	srcdir/make-project/*.o"
 files_to_rm+="	srcdir/make-project/GEF-make-project"
 
+
+echo "AUTOCLEAN :"
+
 for f in $files_to_rm
 do
 	if [ "$display" = 1 ]
@@ -65,4 +68,6 @@ do
 	fi
 	rm "$d" -dir -f
 done
+
+echo "AUTOCLEAN - COMPLETED"
 
