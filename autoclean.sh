@@ -25,6 +25,7 @@ files_to_rm+="	config.log"
 files_to_rm+="	config.status"
 files_to_rm+="	libtool"
 files_to_rm+="	stamp-h1"
+files_to_rm+="	depcomp"
 
 #info
 dir_to_rm+="		srcdir/info/.deps/"
