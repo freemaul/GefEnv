@@ -26,6 +26,11 @@ files_to_rm+="	config.status"
 files_to_rm+="	libtool"
 files_to_rm+="	stamp-h1"
 
+#make-project
+files_to_rm+="	srcdir/make-project/Makefile"
+files_to_rm+="	srcdir/make-project/Makefile.in"
+
+
 
 for f in $files_to_rm
 do
