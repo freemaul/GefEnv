@@ -6,10 +6,14 @@
 class Configuration
 {
 public:
-	Configuration(int,char*[]);
+	Configuration(int,char*[]) throw (std::string);
 private:
-	std::string project_dir;
+	std::string 	project_dir;
+	std::string	name;
+	std::string	dir;
+	bool 		help;
 
+	bool		major; // option principale definit ?
 };
 
 #endif
