@@ -2,12 +2,13 @@
 #include <iostream>
 
 #include "configuration.hpp"
+#include "action.hpp"
 
 int main(int argc,char* argv[])
 {
 	try{
 		Configuration config(argc,argv);
-		
+		Action action(config);
 	}
 
 	catch(std::string message)
