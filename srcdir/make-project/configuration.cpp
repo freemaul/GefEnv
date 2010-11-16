@@ -64,26 +64,14 @@ void Configuration::Commande(std::string commande,std::string argument) throw (c
 	std::string message;
 
 	if(commande == "--name"){
+		if(name!="")
+			cout << "warning, option 'name' overwritting" << endl;
 		name = argument;
 	}else if(commande == "--dir"){
 		dir = argument;
 	}else if(commande == "--input"){
-		if(major == true){
-			message += "Error, you could not use '";
-			message += commande;
-			message += "' here !\n";
-			throw(message);
-		}
-		major = true;
 		input = argument;
 	}else if(commande == "--output"){
-		if(major == true){
-			message += "Error, you could not use '";
-			message += commande;
-			message += "' here !\n";
-			throw(message);
-		}
-		major = true;
 		output = argument;
 	}else{
 		message += "Error unknow option '";
@@ -126,6 +114,8 @@ void Configuration::ReadFromFile(const std::string file_name) throw(const std::s
 			commande+=line[i];
 
 		std::string argument;
+		for(int i=pos_eg+1;i<line.size();i++)
+			argument+=line[i];
 
 		Commande(commande,argument);
 	}
