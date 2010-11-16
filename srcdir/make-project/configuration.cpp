@@ -123,3 +123,10 @@ void Configuration::ReadFromFile(const std::string file_name) throw(const std::s
 
 	myfile.close();
 }
+
+void Configuration::WriteToFile(const std::string) throw (const std::string)
+{
+
+}
+
+

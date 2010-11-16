@@ -9,6 +9,7 @@ class Configuration
 public:
 	Configuration(int,char*[]) throw (const std::string);
 	void ReadFromFile(const std::string) throw (const std::string);
+	void WriteToFile(const std::string) throw (const std::string);
 protected:
 	void Commande(std::string,std::string) throw (const std::string);
 
