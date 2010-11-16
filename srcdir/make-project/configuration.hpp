@@ -10,6 +10,8 @@ public:
 	Configuration(int,char*[]) throw (const std::string);
 	void ReadFromFile(const std::string) throw (const std::string);
 protected:
+	void Commande(std::string,std::string) throw (const std::string);
+
 	std::string 	project_dir;
 	std::string	name;
 	std::string	dir;
