@@ -9,7 +9,7 @@ class Configuration
 public:
 	Configuration(int,char*[]) throw (const std::string);
 	void ReadFromFile(const std::string) throw (const std::string);
-private:
+protected:
 	std::string 	project_dir;
 	std::string	name;
 	std::string	dir;
