@@ -39,48 +39,17 @@ Configuration::Configuration(int argc,char *argv[]) throw(const std::string)
 				major = true;
 				help = true;
 			}
-		}else if(arg == "--name"){
+		}else if(arg[0]=='-' and arg[1]=='-'){
 			i++;
 			if(i>=argc){
-				message += "option --name what for a name\n";
-				throw(message);
-			}
-			name = argv[i];
-		}else if(arg == "--dir"){
-			i++;
-			if(i>=argc){
-				message += "option --dir what for a name directory\n";
-				throw(message);
-			}
-			dir = argv[i];
-		}else if(arg == "--input"){
-			i++;
-			if(i>=argc){
-				message += "option --input what for a name of a file\n";
-				throw(message);
-			}
-			if(major == true){
-				message += "Error, you could not use '";
+				message += "option '";
 				message += arg;
-				message += "' here !\n";
+				message += "' wait for a argument\n";
 				throw(message);
 			}
-			major = true;
-			input = argv[i];
-		}else if(arg == "--output"){
-			i++;
-			if(i>=argc){
-				message += "option --output what for a name of a file\n";
-				throw(message);
-			}
-			if(major == true){
-				message += "Error, you could not use '";
-				message += arg;
-				message += "' here !\n";
-				throw(message);
-			}
-			major = true;
-			output = argv[i];
+			std::string commande = arg;
+			std::string argument = argv[i];
+			Commande(commande,argument);
 		}else{
 			message += "unknow option '";
 			message += arg;
@@ -90,7 +59,39 @@ Configuration::Configuration(int argc,char *argv[]) throw(const std::string)
 	}
 }
 
+void Configuration::Commande(std::string commande,std::string argument) throw (const std::string)
+{
+	std::string message;
 
+	if(commande == "--name"){
+		name = argument;
+	}else if(commande == "--dir"){
+		dir = argument;
+	}else if(commande == "--input"){
+		if(major == true){
+			message += "Error, you could not use '";
+			message += commande;
+			message += "' here !\n";
+			throw(message);
+		}
+		major = true;
+		input = argument;
+	}else if(commande == "--output"){
+		if(major == true){
+			message += "Error, you could not use '";
+			message += commande;
+			message += "' here !\n";
+			throw(message);
+		}
+		major = true;
+		output = argument;
+	}else{
+		message += "Error unknow option '";
+		message += commande;
+		message += "'\n";
+		throw(message);
+	}
+}
 
 void Configuration::ReadFromFile(const std::string file_name) throw(const std::string)
 {
@@ -109,7 +110,24 @@ void Configuration::ReadFromFile(const std::string file_name) throw(const std::s
 	while(myfile.good())
 	{
 		getline(myfile,line);
-		cout << line << endl;
+		cout << "#" << line << "#" << endl;
+		int pos_eg = line.find('=');
+		if(pos_eg == string::npos)
+		{
+			message += "Do not understand line '";
+			message += line;
+			message += "' in file '";
+			message += file_name;
+			message += "'\n";
+			throw(message);
+		}
+		std::string commande="--";
+		for(int i=0;i<pos_eg;i++)
+			commande+=line[i];
+
+		std::string argument;
+
+		Commande(commande,argument);
 	}
 
 
